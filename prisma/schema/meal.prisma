@@ -1,20 +1,38 @@
 model Meal {
-    id         String          @id
-    name       String          @db.VarChar(70)
-    ingredient String
-    providerId String
-    provider   ProviderProfile @relation(fields: [providerId], references: [id])
-    status MealStatus @default(AVAILABLE)
-    price Int 
-    cuisineId String
-    cuisine Cuisine @relation(fields: [cuisineId], references: [id])
-    dietPreference DietPreference
-    description String?
-    tags String?
-    review Review[]
+  id             String          @id
+  name           String          @db.VarChar(70)
+  ingredient     String
+  providerId     String
+  status         MealStatus      @default(AVAILABLE)
+  price          Int
+  cuisineId      String
+  dietPreference DietPreference
+  description    String?
+  tags           String?
+  cuisine        Cuisine         @relation(fields: [cuisineId], references: [id])
+  provider       ProviderProfile @relation(fields: [providerId], references: [id])
+  order          OrderItem[]
+  review         Review[]
+}
 
-    order OrderItem[]
+model Cuisine {
+  id   String @id
+  name String
+  meal Meal[]
+}
 
+model Review {
+  id         String   @id
+  review     String
+  isActive   Boolean  @default(true)
+  customerId String
+  orderId    String?
+  mealId     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  customer   User     @relation(fields: [customerId], references: [id])
+  meal       Meal     @relation(fields: [mealId], references: [id])
+  order      Order?   @relation(fields: [orderId], references: [id])
 }
 
 enum DietPreference {
@@ -26,34 +44,7 @@ enum DietPreference {
   KETO
 }
 
-
-enum MealStatus{
-    AVAILABLE
-    UNAVAILABLE
-}
-
-model Cuisine{
-    id String @id
-    name String
-    meal Meal[]
-}
-
-
-
-model Review {
-   id String @id
-    review String
-    isActive Boolean @default(true)
-  
-  customerId String
-  customer   User    @relation(fields: [customerId], references: [id])
-
-  orderId   String?    // optional, if review linked to order
-  order     Order?     @relation(fields: [orderId], references: [id])
-
-  mealId    String
-  meal      Meal       @relation(fields: [mealId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+enum MealStatus {
+  AVAILABLE
+  UNAVAILABLE
 }

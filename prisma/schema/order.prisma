@@ -1,39 +1,27 @@
 model Order {
-  id           String       @id @default(uuid())
-
-  customerId   String
-  customer     User         @relation(fields: [customerId], references: [id])
-
-  providerId   String
-  provider     ProviderProfile @relation(fields: [providerId], references: [id])
-
-  status       OrderStatus  @default(PENDING)
-
-  totalAmount  Float
-  paymentStatus PaymentStatus @default(PENDING)
-
-  orderItems   OrderItem[]
-
-  review       Review[]
-
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  id            String          @id @default(uuid())
+  customerId    String
+  providerId    String
+  status        OrderStatus     @default(PENDING)
+  totalAmount   Float
+  paymentStatus PaymentStatus   @default(PENDING)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  customer      User            @relation(fields: [customerId], references: [id])
+  provider      ProviderProfile @relation(fields: [providerId], references: [id])
+  orderItems    OrderItem[]
+  review        Review[]
 }
 
-
 model OrderItem {
-  id        String  @id @default(uuid())
-
-  orderId  String
-  order    Order   @relation(fields: [orderId], references: [id])
-
-  mealId   String
-  meal     Meal    @relation(fields: [mealId], references: [id])
-
-  quantity Int
-  price    Float   // price at time of order
-
+  id        String   @id @default(uuid())
+  orderId   String
+  mealId    String
+  quantity  Int
+  price     Float
   createdAt DateTime @default(now())
+  meal      Meal     @relation(fields: [mealId], references: [id])
+  order     Order    @relation(fields: [orderId], references: [id])
 }
 
 enum OrderStatus {
