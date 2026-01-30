@@ -1,0 +1,14 @@
+model ProviderProfile{
+    id String @id
+    userId String @unique
+    user User @relation(fields: [userId], references: [id])
+    restaurant_name String
+    description String @db.VarChar(255)
+    address String
+    phone String @db.VarChar(15)
+    isActive Boolean @default(true)
+    createdAt DateTime @default(now())
+    meals   Meal[] // 👈 opposite relation
+    order Order[]
+
+}

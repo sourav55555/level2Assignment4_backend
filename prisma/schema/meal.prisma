@@ -1,0 +1,59 @@
+model Meal {
+    id         String          @id
+    name       String          @db.VarChar(70)
+    ingredient String
+    providerId String
+    provider   ProviderProfile @relation(fields: [providerId], references: [id])
+    status MealStatus @default(AVAILABLE)
+    price Int 
+    cuisineId String
+    cuisine Cuisine @relation(fields: [cuisineId], references: [id])
+    dietPreference DietPreference
+    description String?
+    tags String?
+    review Review[]
+
+    order OrderItem[]
+
+}
+
+enum DietPreference {
+  VEGETARIAN
+  VEGAN
+  NON_VEGETARIAN
+  GLUTEN_FREE
+  HALAL
+  KETO
+}
+
+
+enum MealStatus{
+    AVAILABLE
+    UNAVAILABLE
+}
+
+model Cuisine{
+    id String @id
+    name String
+    meal Meal[]
+}
+
+
+
+model Review {
+   id String @id
+    review String
+    isActive Boolean @default(true)
+  
+  customerId String
+  customer   User    @relation(fields: [customerId], references: [id])
+
+  orderId   String?    // optional, if review linked to order
+  order     Order?     @relation(fields: [orderId], references: [id])
+
+  mealId    String
+  meal      Meal       @relation(fields: [mealId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
