@@ -31,9 +31,24 @@ const getMeal = async (mealId: string) => {
         return e
     }
 }
+const deleteMeal = async (mealId: string, userId: string) => {
+    try {
+        const res = await prisma.meal.delete({
+            where: {
+                id: mealId,
+                providerId: userId
+            },
+          
+        })
+        return res;
+    } catch (e) {
+        return e
+    }
+}
 
 
 export const mealService = {
     mealList,
-    getMeal
+    getMeal,
+    deleteMeal
 }

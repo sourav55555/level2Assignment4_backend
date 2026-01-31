@@ -35,9 +35,28 @@ const getMeal = async (req: Request, res: Response) => {
         })
     }
 }
+const deleteMeal = async (req: Request, res: Response) => { 
+     try {
+
+         const mealId = req.params.id as string;
+         const userId = req.user?.id
+        const result = await mealService.deleteMeal(mealId, userId!);
+        console.log(result, "result")
+        res.status(201).json({
+            success: true,
+            data: result
+        })
+    } catch (e) {
+        res.status(400).json({
+            error: "Meal creation failed",
+            message: e
+        })
+    }
+}
 
 
 export const mealController = {
     getAllMeal,
-    getMeal
+    getMeal,
+    deleteMeal
 }
