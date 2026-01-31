@@ -1,28 +1,29 @@
 model Meal {
-  id             String          @id
-  name           String          @db.VarChar(70)
+  id             String         @id @default(uuid())
+  name           String         @db.VarChar(70)
   ingredient     String
   providerId     String
-  status         MealStatus      @default(AVAILABLE)
+  imageUrl       String
+  status         MealStatus     @default(AVAILABLE)
   price          Int
   cuisineId      String
   dietPreference DietPreference
   description    String?
   tags           String?
-  cuisine        Cuisine         @relation(fields: [cuisineId], references: [id])
-  provider       ProviderProfile @relation(fields: [providerId], references: [id])
+  cuisine        Cuisine        @relation(fields: [cuisineId], references: [id])
+  provider       User           @relation(fields: [providerId], references: [id])
   order          OrderItem[]
   review         Review[]
 }
 
 model Cuisine {
-  id   String @id
+  id   String @id @default(uuid())
   name String
   meal Meal[]
 }
 
 model Review {
-  id         String   @id
+  id         String   @id @default(uuid())
   review     String
   isActive   Boolean  @default(true)
   customerId String

@@ -84,8 +84,3 @@ export type Order = Prisma.OrderModel
  * 
  */
 export type OrderItem = Prisma.OrderItemModel
-/**
- * Model ProviderProfile
- * 
- */
-export type ProviderProfile = Prisma.ProviderProfileModel

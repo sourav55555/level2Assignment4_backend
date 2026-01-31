@@ -11,7 +11,12 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     },
-    trustedOrigins: [process.env.APP_URL!],
+    trustedOrigins: [
+        "http://localhost:4000",     
+        "http://192.168.31.91:4000",   
+        process.env.APP_URL || "http://localhost:3000",  
+
+    ],
     user: {
         additionalFields: {
             role: {

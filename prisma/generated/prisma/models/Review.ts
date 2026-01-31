@@ -271,7 +271,7 @@ export type ReviewScalarWhereWithAggregatesInput = {
 }
 
 export type ReviewCreateInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   createdAt?: Date | string
@@ -282,7 +282,7 @@ export type ReviewCreateInput = {
 }
 
 export type ReviewUncheckedCreateInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string
@@ -315,7 +315,7 @@ export type ReviewUncheckedUpdateInput = {
 }
 
 export type ReviewCreateManyInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string
@@ -514,7 +514,7 @@ export type ReviewUncheckedUpdateManyWithoutOrderNestedInput = {
 }
 
 export type ReviewCreateWithoutCustomerInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   createdAt?: Date | string
@@ -524,7 +524,7 @@ export type ReviewCreateWithoutCustomerInput = {
 }
 
 export type ReviewUncheckedCreateWithoutCustomerInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   orderId?: string | null
@@ -574,7 +574,7 @@ export type ReviewScalarWhereInput = {
 }
 
 export type ReviewCreateWithoutMealInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   createdAt?: Date | string
@@ -584,7 +584,7 @@ export type ReviewCreateWithoutMealInput = {
 }
 
 export type ReviewUncheckedCreateWithoutMealInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string
@@ -620,7 +620,7 @@ export type ReviewUpdateManyWithWhereWithoutMealInput = {
 }
 
 export type ReviewCreateWithoutOrderInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   createdAt?: Date | string
@@ -630,7 +630,7 @@ export type ReviewCreateWithoutOrderInput = {
 }
 
 export type ReviewUncheckedCreateWithoutOrderInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string
@@ -666,7 +666,7 @@ export type ReviewUpdateManyWithWhereWithoutOrderInput = {
 }
 
 export type ReviewCreateManyCustomerInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   orderId?: string | null
@@ -706,7 +706,7 @@ export type ReviewUncheckedUpdateManyWithoutCustomerInput = {
 }
 
 export type ReviewCreateManyMealInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string
@@ -746,7 +746,7 @@ export type ReviewUncheckedUpdateManyWithoutMealInput = {
 }
 
 export type ReviewCreateManyOrderInput = {
-  id: string
+  id?: string
   review: string
   isActive?: boolean
   customerId: string

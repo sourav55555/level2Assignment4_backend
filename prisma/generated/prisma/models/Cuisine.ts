@@ -193,13 +193,13 @@ export type CuisineScalarWhereWithAggregatesInput = {
 }
 
 export type CuisineCreateInput = {
-  id: string
+  id?: string
   name: string
   meal?: Prisma.MealCreateNestedManyWithoutCuisineInput
 }
 
 export type CuisineUncheckedCreateInput = {
-  id: string
+  id?: string
   name: string
   meal?: Prisma.MealUncheckedCreateNestedManyWithoutCuisineInput
 }
@@ -217,7 +217,7 @@ export type CuisineUncheckedUpdateInput = {
 }
 
 export type CuisineCreateManyInput = {
-  id: string
+  id?: string
   name: string
 }
 
@@ -266,12 +266,12 @@ export type CuisineUpdateOneRequiredWithoutMealNestedInput = {
 }
 
 export type CuisineCreateWithoutMealInput = {
-  id: string
+  id?: string
   name: string
 }
 
 export type CuisineUncheckedCreateWithoutMealInput = {
-  id: string
+  id?: string
   name: string
 }
 

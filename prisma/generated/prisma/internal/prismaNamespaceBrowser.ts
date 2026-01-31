@@ -59,8 +59,7 @@ export const ModelName = {
   Cuisine: 'Cuisine',
   Review: 'Review',
   Order: 'Order',
-  OrderItem: 'OrderItem',
-  ProviderProfile: 'ProviderProfile'
+  OrderItem: 'OrderItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -89,7 +88,11 @@ export const UserScalarFieldEnum = {
   updatedAt: 'updatedAt',
   role: 'role',
   phone: 'phone',
-  status: 'status'
+  status: 'status',
+  restaurant_name: 'restaurant_name',
+  description: 'description',
+  address: 'address',
+  isActive: 'isActive'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -145,6 +148,7 @@ export const MealScalarFieldEnum = {
   name: 'name',
   ingredient: 'ingredient',
   providerId: 'providerId',
+  imageUrl: 'imageUrl',
   status: 'status',
   price: 'price',
   cuisineId: 'cuisineId',
@@ -202,20 +206,6 @@ export const OrderItemScalarFieldEnum = {
 } as const
 
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
-
-
-export const ProviderProfileScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  restaurant_name: 'restaurant_name',
-  description: 'description',
-  address: 'address',
-  phone: 'phone',
-  isActive: 'isActive',
-  createdAt: 'createdAt'
-} as const
-
-export type ProviderProfileScalarFieldEnum = (typeof ProviderProfileScalarFieldEnum)[keyof typeof ProviderProfileScalarFieldEnum]
 
 
 export const SortOrder = {
