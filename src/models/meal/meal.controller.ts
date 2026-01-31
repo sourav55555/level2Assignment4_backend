@@ -48,7 +48,26 @@ const deleteMeal = async (req: Request, res: Response) => {
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Meal Deletion failed",
+            message: e
+        })
+    }
+}
+const updateMeal = async (req: Request, res: Response) => { 
+     try {
+
+         const mealId = req.params.id as string;
+         const userId = req.user?.id;
+         const payload = req.body
+        const result = await mealService.updateMeal(payload,mealId, userId!);
+        console.log(result, "result")
+        res.status(201).json({
+            success: true,
+            data: result
+        })
+    } catch (e) {
+        res.status(400).json({
+            error: "Meal Update failed",
             message: e
         })
     }
@@ -58,5 +77,6 @@ const deleteMeal = async (req: Request, res: Response) => {
 export const mealController = {
     getAllMeal,
     getMeal,
-    deleteMeal
+    deleteMeal,
+    updateMeal
 }

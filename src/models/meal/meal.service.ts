@@ -45,10 +45,28 @@ const deleteMeal = async (mealId: string, userId: string) => {
         return e
     }
 }
+const updateMeal = async ( payload: Partial<any>,mealId: string, userId: string) => {
+    try {
+        const res = await prisma.meal.update({
+            where: {
+                id: mealId,
+                providerId: userId
+            },
+       
+            data: payload
+          
+        })
+        return res;
+    } catch (e) {
+        console.log(e, "error update meal")
+        return e
+    }
+}
 
 
 export const mealService = {
     mealList,
     getMeal,
-    deleteMeal
+    deleteMeal,
+    updateMeal
 }
