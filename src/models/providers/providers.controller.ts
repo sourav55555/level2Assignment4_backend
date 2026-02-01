@@ -37,9 +37,28 @@ const getMeals = async (req: Request, res: Response) => {
         })
     }
 }
+const dashboardData = async (req: Request, res: Response) => { 
+     try {
+  
+        const userId = req.user?.id;
+
+        const result = await providerService.dashboardData(userId!);
+        console.log(result, "result")
+        res.status(201).json({
+            success: true,
+            data: result
+        })
+    } catch (e) {
+        res.status(400).json({
+            error: "Meal creation failed",
+            message: e
+        })
+    }
+}
 
 export const providerController = {
     createMeal,
     getMeals,
+    dashboardData
 
 }
