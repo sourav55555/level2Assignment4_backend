@@ -10,5 +10,6 @@ router.post("/create", authenticate(UserRole.PROVIDER), providerController.creat
 router.get("/meals", authenticate(UserRole.PROVIDER), providerController.getMeals)
 // router.get("/meal/:id", authenticate(UserRole.PROVIDER), providerController.getMeal)
 router.get("/dashboard", authenticate(UserRole.PROVIDER), providerController.dashboardData)
+router.get("/:id", providerController.getPrividerProfile)
 
 export default router

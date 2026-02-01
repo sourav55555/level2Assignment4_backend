@@ -1,14 +1,15 @@
 
-import app from './app.js'
 import dotenv from 'dotenv'
-import { prisma } from './lib/prisma.js';
-
 dotenv.config()
+
+import app from './app.js'
+import { prisma } from './lib/prisma.js';
 
 const PORT = process.env.PORT || 3000
 
 
 async function main() {
+  console.log(process.env.DATABASE_URL, 'db url')
   try {
     await prisma.$connect();
     console.log("DB connected successfully")

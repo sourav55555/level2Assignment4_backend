@@ -3,13 +3,13 @@ model Meal {
   name           String         @db.VarChar(70)
   ingredient     String
   providerId     String
-  imageUrl       String
   status         MealStatus     @default(AVAILABLE)
   price          Int
   cuisineId      String
   dietPreference DietPreference
   description    String?
   tags           String?
+  imageUrl       String
   cuisine        Cuisine        @relation(fields: [cuisineId], references: [id])
   provider       User           @relation(fields: [providerId], references: [id])
   order          OrderItem[]

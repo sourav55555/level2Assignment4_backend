@@ -35,10 +35,10 @@ export type UserMinAggregateOutputType = {
   role: $Enums.UserRole | null
   phone: string | null
   status: $Enums.Status | null
-  restaurant_name: string | null
-  description: string | null
   address: string | null
+  description: string | null
   isActive: boolean | null
+  restaurant_name: string | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -52,10 +52,10 @@ export type UserMaxAggregateOutputType = {
   role: $Enums.UserRole | null
   phone: string | null
   status: $Enums.Status | null
-  restaurant_name: string | null
-  description: string | null
   address: string | null
+  description: string | null
   isActive: boolean | null
+  restaurant_name: string | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -69,10 +69,10 @@ export type UserCountAggregateOutputType = {
   role: number
   phone: number
   status: number
-  restaurant_name: number
-  description: number
   address: number
+  description: number
   isActive: number
+  restaurant_name: number
   _all: number
 }
 
@@ -88,10 +88,10 @@ export type UserMinAggregateInputType = {
   role?: true
   phone?: true
   status?: true
-  restaurant_name?: true
-  description?: true
   address?: true
+  description?: true
   isActive?: true
+  restaurant_name?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -105,10 +105,10 @@ export type UserMaxAggregateInputType = {
   role?: true
   phone?: true
   status?: true
-  restaurant_name?: true
-  description?: true
   address?: true
+  description?: true
   isActive?: true
+  restaurant_name?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -122,10 +122,10 @@ export type UserCountAggregateInputType = {
   role?: true
   phone?: true
   status?: true
-  restaurant_name?: true
-  description?: true
   address?: true
+  description?: true
   isActive?: true
+  restaurant_name?: true
   _all?: true
 }
 
@@ -212,10 +212,10 @@ export type UserGroupByOutputType = {
   role: $Enums.UserRole
   phone: string | null
   status: $Enums.Status
-  restaurant_name: string | null
-  description: string | null
   address: string | null
+  description: string | null
   isActive: boolean
+  restaurant_name: string | null
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -250,13 +250,13 @@ export type UserWhereInput = {
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
   phone?: Prisma.StringNullableFilter<"User"> | string | null
   status?: Prisma.EnumStatusFilter<"User"> | $Enums.Status
-  restaurant_name?: Prisma.StringNullableFilter<"User"> | string | null
-  description?: Prisma.StringNullableFilter<"User"> | string | null
   address?: Prisma.StringNullableFilter<"User"> | string | null
+  description?: Prisma.StringNullableFilter<"User"> | string | null
   isActive?: Prisma.BoolFilter<"User"> | boolean
+  restaurant_name?: Prisma.StringNullableFilter<"User"> | string | null
+  meals?: Prisma.MealListRelationFilter
   customerOrders?: Prisma.OrderListRelationFilter
   providerOrders?: Prisma.OrderListRelationFilter
-  meals?: Prisma.MealListRelationFilter
   review?: Prisma.ReviewListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
@@ -273,13 +273,13 @@ export type UserOrderByWithRelationInput = {
   role?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  restaurant_name?: Prisma.SortOrderInput | Prisma.SortOrder
-  description?: Prisma.SortOrderInput | Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  restaurant_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  meals?: Prisma.MealOrderByRelationAggregateInput
   customerOrders?: Prisma.OrderOrderByRelationAggregateInput
   providerOrders?: Prisma.OrderOrderByRelationAggregateInput
-  meals?: Prisma.MealOrderByRelationAggregateInput
   review?: Prisma.ReviewOrderByRelationAggregateInput
   accounts?: Prisma.AccountOrderByRelationAggregateInput
   sessions?: Prisma.SessionOrderByRelationAggregateInput
@@ -299,13 +299,13 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
   phone?: Prisma.StringNullableFilter<"User"> | string | null
   status?: Prisma.EnumStatusFilter<"User"> | $Enums.Status
-  restaurant_name?: Prisma.StringNullableFilter<"User"> | string | null
-  description?: Prisma.StringNullableFilter<"User"> | string | null
   address?: Prisma.StringNullableFilter<"User"> | string | null
+  description?: Prisma.StringNullableFilter<"User"> | string | null
   isActive?: Prisma.BoolFilter<"User"> | boolean
+  restaurant_name?: Prisma.StringNullableFilter<"User"> | string | null
+  meals?: Prisma.MealListRelationFilter
   customerOrders?: Prisma.OrderListRelationFilter
   providerOrders?: Prisma.OrderListRelationFilter
-  meals?: Prisma.MealListRelationFilter
   review?: Prisma.ReviewListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
@@ -322,10 +322,10 @@ export type UserOrderByWithAggregationInput = {
   role?: Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  restaurant_name?: Prisma.SortOrderInput | Prisma.SortOrder
-  description?: Prisma.SortOrderInput | Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  restaurant_name?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -345,10 +345,10 @@ export type UserScalarWhereWithAggregatesInput = {
   role?: Prisma.EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
   phone?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"User"> | $Enums.Status
-  restaurant_name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  description?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   address?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  description?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   isActive?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  restaurant_name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
 }
 
 export type UserCreateInput = {
@@ -362,13 +362,13 @@ export type UserCreateInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -385,13 +385,13 @@ export type UserUncheckedCreateInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -408,13 +408,13 @@ export type UserUpdateInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -431,13 +431,13 @@ export type UserUncheckedUpdateInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -454,10 +454,10 @@ export type UserCreateManyInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
 }
 
 export type UserUpdateManyMutationInput = {
@@ -471,10 +471,10 @@ export type UserUpdateManyMutationInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -488,10 +488,10 @@ export type UserUncheckedUpdateManyInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -505,10 +505,10 @@ export type UserCountOrderByAggregateInput = {
   role?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  restaurant_name?: Prisma.SortOrder
-  description?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  restaurant_name?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -522,10 +522,10 @@ export type UserMaxOrderByAggregateInput = {
   role?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  restaurant_name?: Prisma.SortOrder
-  description?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  restaurant_name?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -539,10 +539,10 @@ export type UserMinOrderByAggregateInput = {
   role?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  restaurant_name?: Prisma.SortOrder
-  description?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  restaurant_name?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -669,13 +669,13 @@ export type UserCreateWithoutSessionsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
@@ -691,13 +691,13 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
@@ -729,13 +729,13 @@ export type UserUpdateWithoutSessionsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
@@ -751,13 +751,13 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -773,13 +773,13 @@ export type UserCreateWithoutAccountsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
 }
@@ -795,13 +795,13 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
 }
@@ -833,13 +833,13 @@ export type UserUpdateWithoutAccountsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
 }
@@ -855,13 +855,13 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -877,10 +877,10 @@ export type UserCreateWithoutMealsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
@@ -899,10 +899,10 @@ export type UserUncheckedCreateWithoutMealsInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
@@ -937,10 +937,10 @@ export type UserUpdateWithoutMealsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
@@ -959,10 +959,10 @@ export type UserUncheckedUpdateWithoutMealsInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
@@ -981,13 +981,13 @@ export type UserCreateWithoutReviewInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
 }
@@ -1003,13 +1003,13 @@ export type UserUncheckedCreateWithoutReviewInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
-  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1041,13 +1041,13 @@ export type UserUpdateWithoutReviewInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
 }
@@ -1063,13 +1063,13 @@ export type UserUncheckedUpdateWithoutReviewInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
-  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1085,12 +1085,12 @@ export type UserCreateWithoutCustomerOrdersInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
-  providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  restaurant_name?: string | null
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
+  providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1107,12 +1107,12 @@ export type UserUncheckedCreateWithoutCustomerOrdersInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
-  providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  restaurant_name?: string | null
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
+  providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1134,12 +1134,12 @@ export type UserCreateWithoutProviderOrdersInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
-  customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
+  restaurant_name?: string | null
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
+  customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1156,12 +1156,12 @@ export type UserUncheckedCreateWithoutProviderOrdersInput = {
   role?: $Enums.UserRole
   phone?: string | null
   status?: $Enums.Status
-  restaurant_name?: string | null
-  description?: string | null
   address?: string | null
+  description?: string | null
   isActive?: boolean
-  customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
+  restaurant_name?: string | null
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
+  customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1194,12 +1194,12 @@ export type UserUpdateWithoutCustomerOrdersInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
+  providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1216,12 +1216,12 @@ export type UserUncheckedUpdateWithoutCustomerOrdersInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
+  providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1249,12 +1249,12 @@ export type UserUpdateWithoutProviderOrdersInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
+  customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1271,12 +1271,12 @@ export type UserUncheckedUpdateWithoutProviderOrdersInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
+  customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1288,18 +1288,18 @@ export type UserUncheckedUpdateWithoutProviderOrdersInput = {
  */
 
 export type UserCountOutputType = {
+  meals: number
   customerOrders: number
   providerOrders: number
-  meals: number
   review: number
   accounts: number
   sessions: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  meals?: boolean | UserCountOutputTypeCountMealsArgs
   customerOrders?: boolean | UserCountOutputTypeCountCustomerOrdersArgs
   providerOrders?: boolean | UserCountOutputTypeCountProviderOrdersArgs
-  meals?: boolean | UserCountOutputTypeCountMealsArgs
   review?: boolean | UserCountOutputTypeCountReviewArgs
   accounts?: boolean | UserCountOutputTypeCountAccountsArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
@@ -1318,6 +1318,13 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountMealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MealWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountCustomerOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.OrderWhereInput
 }
@@ -1327,13 +1334,6 @@ export type UserCountOutputTypeCountCustomerOrdersArgs<ExtArgs extends runtime.T
  */
 export type UserCountOutputTypeCountProviderOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.OrderWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountMealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.MealWhereInput
 }
 
 /**
@@ -1369,13 +1369,13 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   role?: boolean
   phone?: boolean
   status?: boolean
-  restaurant_name?: boolean
-  description?: boolean
   address?: boolean
+  description?: boolean
   isActive?: boolean
+  restaurant_name?: boolean
+  meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   customerOrders?: boolean | Prisma.User$customerOrdersArgs<ExtArgs>
   providerOrders?: boolean | Prisma.User$providerOrdersArgs<ExtArgs>
-  meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   review?: boolean | Prisma.User$reviewArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -1393,10 +1393,10 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   phone?: boolean
   status?: boolean
-  restaurant_name?: boolean
-  description?: boolean
   address?: boolean
+  description?: boolean
   isActive?: boolean
+  restaurant_name?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1410,10 +1410,10 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   phone?: boolean
   status?: boolean
-  restaurant_name?: boolean
-  description?: boolean
   address?: boolean
+  description?: boolean
   isActive?: boolean
+  restaurant_name?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -1427,17 +1427,17 @@ export type UserSelectScalar = {
   role?: boolean
   phone?: boolean
   status?: boolean
-  restaurant_name?: boolean
-  description?: boolean
   address?: boolean
+  description?: boolean
   isActive?: boolean
+  restaurant_name?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "createdAt" | "updatedAt" | "role" | "phone" | "status" | "restaurant_name" | "description" | "address" | "isActive", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "createdAt" | "updatedAt" | "role" | "phone" | "status" | "address" | "description" | "isActive" | "restaurant_name", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   customerOrders?: boolean | Prisma.User$customerOrdersArgs<ExtArgs>
   providerOrders?: boolean | Prisma.User$providerOrdersArgs<ExtArgs>
-  meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   review?: boolean | Prisma.User$reviewArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -1449,9 +1449,9 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
+    meals: Prisma.$MealPayload<ExtArgs>[]
     customerOrders: Prisma.$OrderPayload<ExtArgs>[]
     providerOrders: Prisma.$OrderPayload<ExtArgs>[]
-    meals: Prisma.$MealPayload<ExtArgs>[]
     review: Prisma.$ReviewPayload<ExtArgs>[]
     accounts: Prisma.$AccountPayload<ExtArgs>[]
     sessions: Prisma.$SessionPayload<ExtArgs>[]
@@ -1467,10 +1467,10 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     role: $Enums.UserRole
     phone: string | null
     status: $Enums.Status
-    restaurant_name: string | null
-    description: string | null
     address: string | null
+    description: string | null
     isActive: boolean
+    restaurant_name: string | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1865,9 +1865,9 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  meals<T extends Prisma.User$mealsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mealsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   customerOrders<T extends Prisma.User$customerOrdersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$customerOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   providerOrders<T extends Prisma.User$providerOrdersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$providerOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  meals<T extends Prisma.User$mealsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mealsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   review<T extends Prisma.User$reviewArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   accounts<T extends Prisma.User$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -1910,10 +1910,10 @@ export interface UserFieldRefs {
   readonly role: Prisma.FieldRef<"User", 'UserRole'>
   readonly phone: Prisma.FieldRef<"User", 'String'>
   readonly status: Prisma.FieldRef<"User", 'Status'>
-  readonly restaurant_name: Prisma.FieldRef<"User", 'String'>
-  readonly description: Prisma.FieldRef<"User", 'String'>
   readonly address: Prisma.FieldRef<"User", 'String'>
+  readonly description: Prisma.FieldRef<"User", 'String'>
   readonly isActive: Prisma.FieldRef<"User", 'Boolean'>
+  readonly restaurant_name: Prisma.FieldRef<"User", 'String'>
 }
     
 
@@ -2302,6 +2302,30 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * User.meals
+ */
+export type User$mealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Meal
+   */
+  select?: Prisma.MealSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Meal
+   */
+  omit?: Prisma.MealOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MealInclude<ExtArgs> | null
+  where?: Prisma.MealWhereInput
+  orderBy?: Prisma.MealOrderByWithRelationInput | Prisma.MealOrderByWithRelationInput[]
+  cursor?: Prisma.MealWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MealScalarFieldEnum | Prisma.MealScalarFieldEnum[]
+}
+
+/**
  * User.customerOrders
  */
 export type User$customerOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2347,30 +2371,6 @@ export type User$providerOrdersArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
-}
-
-/**
- * User.meals
- */
-export type User$mealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Meal
-   */
-  select?: Prisma.MealSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Meal
-   */
-  omit?: Prisma.MealOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.MealInclude<ExtArgs> | null
-  where?: Prisma.MealWhereInput
-  orderBy?: Prisma.MealOrderByWithRelationInput | Prisma.MealOrderByWithRelationInput[]
-  cursor?: Prisma.MealWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.MealScalarFieldEnum | Prisma.MealScalarFieldEnum[]
 }
 
 /**

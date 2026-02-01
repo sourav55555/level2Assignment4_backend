@@ -89,10 +89,10 @@ export const UserScalarFieldEnum = {
   role: 'role',
   phone: 'phone',
   status: 'status',
-  restaurant_name: 'restaurant_name',
-  description: 'description',
   address: 'address',
-  isActive: 'isActive'
+  description: 'description',
+  isActive: 'isActive',
+  restaurant_name: 'restaurant_name'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -148,13 +148,13 @@ export const MealScalarFieldEnum = {
   name: 'name',
   ingredient: 'ingredient',
   providerId: 'providerId',
-  imageUrl: 'imageUrl',
   status: 'status',
   price: 'price',
   cuisineId: 'cuisineId',
   dietPreference: 'dietPreference',
   description: 'description',
-  tags: 'tags'
+  tags: 'tags',
+  imageUrl: 'imageUrl'
 } as const
 
 export type MealScalarFieldEnum = (typeof MealScalarFieldEnum)[keyof typeof MealScalarFieldEnum]
@@ -188,6 +188,7 @@ export const OrderScalarFieldEnum = {
   providerId: 'providerId',
   status: 'status',
   totalAmount: 'totalAmount',
+  address: 'address',
   paymentStatus: 'paymentStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

@@ -9,13 +9,13 @@ model User {
   role            UserRole  @default(USER)
   phone           String?
   status          Status    @default(ACTIVE)
-  restaurant_name String?
-  description     String?   @db.VarChar(255)
   address         String?
+  description     String?   @db.VarChar(255)
   isActive        Boolean   @default(true)
+  restaurant_name String?
+  meals           Meal[]
   customerOrders  Order[]   @relation("CustomerOrders")
   providerOrders  Order[]   @relation("ProviderOrders")
-  meals           Meal[]
   review          Review[]
   accounts        Account[]
   sessions        Session[]

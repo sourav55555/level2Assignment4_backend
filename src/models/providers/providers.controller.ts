@@ -55,10 +55,29 @@ const dashboardData = async (req: Request, res: Response) => {
         })
     }
 }
+const getPrividerProfile = async (req: Request, res: Response) => { 
+     try {
+  
+        const {id} = req.params;
+
+        const result = await providerService.getPrividerProfile(id as string);
+        console.log(result, "result")
+        res.status(201).json({
+            success: true,
+            data: result
+        })
+    } catch (e) {
+        res.status(400).json({
+            error: "Meal creation failed",
+            message: e
+        })
+    }
+}
 
 export const providerController = {
     createMeal,
     getMeals,
-    dashboardData
+    dashboardData,
+    getPrividerProfile
 
 }

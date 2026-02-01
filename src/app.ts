@@ -6,6 +6,9 @@ import { notFound } from './lib/notFound.js';
 import providerRouter from './models/providers/providers.routes.js'
 import mealRouter from './models/meal/meal.router.js'
 import cuisineRouter from './models/cuisine/cuisine.route.js'
+import orderRouter from './models/orders/orders.route.js'
+import reviewRouter from './models/review/review.route.js'
+import userRouter from './models/user/user.route.js'
 
 
 const app = express()
@@ -27,12 +30,16 @@ app.use(cors({
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
 
+
 app.get('/', (req, res) => {
   res.json({ message: 'Server is running' })
 })
 app.use("/provider", providerRouter)
 app.use("/meals", mealRouter)
+app.use("/orders", orderRouter)
 app.use("/cuisine", cuisineRouter)
+app.use("/review", reviewRouter)
+app.use("/user", userRouter)
 
 app.use(notFound)
 

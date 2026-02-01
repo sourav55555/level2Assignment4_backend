@@ -39,6 +39,33 @@ const getMealsData = async (userId: string) => {
         return e
     }
 }
+const getPrividerProfile = async (userId: string) => {
+    try {
+        const res = await prisma.user.findUnique({
+            where: {
+                id: userId
+            },
+            include: {
+                meals: {
+                    include:{
+                        cuisine: true,
+                        provider: {
+                        select: {
+                            name: true,
+                            id: true
+                        }
+                    }
+                   
+                }
+                }
+               
+            }
+        })
+        return res;
+    } catch (e) {
+        return e
+    }
+}
 const dashboardData = async (userId: string) => {
     try {
         const res = await prisma.$transaction(async (tx) => {
@@ -75,6 +102,7 @@ const dashboardData = async (userId: string) => {
 export const providerService = {
     createMeal,
     getMealsData,
-    dashboardData
+    dashboardData,
+    getPrividerProfile
 
 }
