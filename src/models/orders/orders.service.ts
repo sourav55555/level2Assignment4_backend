@@ -21,59 +21,119 @@ const orderList = async () => {
     }
 
 }
+const userOrders = async (id: string) => {
+    try {
+      const res = await prisma.order.findMany({
+        where:{
+            id
+          }
+        });
+        return res
+    } catch (e) {
+        return e;
+    }
 
-// const createOrder = async (payload: any, userId: string) => {
+}
 
-//     try {
+const createOrderItem = async (payload: any, userId: string) => {
+
+    try {
         
-//         const res = await prisma.order.create({
-//             data: {
-//                 ...payload,
-//                 customerId: userId,
-//                 orderList:{
-//                     create: payload.otherItems
-//                 }
-//             }
-//         })
-//         console.log(res, "response")
-//         return res
-//     } catch (e) {
-//         console.log(e)
-//         return e
-//     }
+        const res = await prisma.orderItem.create({
+            data: {
+                ...payload,
+                userId
+            }
+        })
+        console.log(res, "response")
+        return res
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 
-// }
+}
+const getOrderItem = async ( userId: string) => {
 
-const createOrder = async (payload: CreateOrderPayload, userId: string) => {
-  try {
-    const res = await prisma.order.create({
+    try {
+        
+        const res = await prisma.orderItem.findMany({
+          where: {
+              userId
+            }
+        })
+        return res
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+
+}
+
+export async function createOrder(
+
+  payload: {
+    providerId: string;
+    address: string;
+    totalAmount: number;
+    orderItemIds: string[];
+  },
+  userId: string,
+) {
+  return await prisma.$transaction(async (tx) => {
+    // 1️⃣ Fetch cart items by IDs + ownership
+    const items = await tx.orderItem.findMany({
+      where: {
+        id: { in: payload.orderItemIds },
+        userId,
+        orderId: null,
+      },
+      include: {
+        meal: true,
+      },
+    });
+
+    if (items.length === 0) {
+      throw new Error("Invalid cart items");
+    }
+
+    const providerIds = new Set(
+      items.map((i) => i.meal.providerId)
+    );
+
+    if (providerIds.size !== 1 || !providerIds.has(payload.providerId)) {
+      throw new Error("Items must belong to the same provider");
+    }
+
+
+    const order = await tx.order.create({
       data: {
         customerId: userId,
         providerId: payload.providerId,
-        totalAmount: payload.totalAmount,
         address: payload.address,
-        status: "PENDING", // optional, has default
-        paymentStatus: "PENDING", // optional, has default
-        orderItems: {
-          create: payload.items.map(item => ({
-            mealId: item.mealId,
-            quantity: item.quantity,
-            price: item.price,
-          }))
-        }
+        totalAmount: payload.totalAmount,
       },
-      include: {
-        orderItems: true, // Include created items in response
-      }
     });
-    
-    console.log(res, "response");
-    return res;
-  } catch (e) {
-    console.error("Order creation failed:", e);
-    throw e; // Don't return error, throw it so caller can handle
-  }
-};
+
+
+    await tx.orderItem.updateMany({
+      where: {
+        id: { in: payload.orderItemIds },
+        userId,
+        orderId: null,
+      },
+      data: {
+        orderId: order.id,
+      },
+    });
+
+    return await tx.order.findUnique({
+      where: { id: order.id },
+      include: { orderItems: true },
+    });
+  });
+}
+
 
 const orderStatus = async (id: string)=>{
       try {
@@ -111,5 +171,8 @@ export const orderService = {
     orderList,
     createOrder,
     orderStatus,
-    changeStatus
+  changeStatus,
+  userOrders,
+  createOrderItem,
+    getOrderItem
 }

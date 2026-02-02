@@ -257,6 +257,7 @@ export type UserWhereInput = {
   meals?: Prisma.MealListRelationFilter
   customerOrders?: Prisma.OrderListRelationFilter
   providerOrders?: Prisma.OrderListRelationFilter
+  orderItem?: Prisma.OrderItemListRelationFilter
   review?: Prisma.ReviewListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
@@ -280,6 +281,7 @@ export type UserOrderByWithRelationInput = {
   meals?: Prisma.MealOrderByRelationAggregateInput
   customerOrders?: Prisma.OrderOrderByRelationAggregateInput
   providerOrders?: Prisma.OrderOrderByRelationAggregateInput
+  orderItem?: Prisma.OrderItemOrderByRelationAggregateInput
   review?: Prisma.ReviewOrderByRelationAggregateInput
   accounts?: Prisma.AccountOrderByRelationAggregateInput
   sessions?: Prisma.SessionOrderByRelationAggregateInput
@@ -306,6 +308,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   meals?: Prisma.MealListRelationFilter
   customerOrders?: Prisma.OrderListRelationFilter
   providerOrders?: Prisma.OrderListRelationFilter
+  orderItem?: Prisma.OrderItemListRelationFilter
   review?: Prisma.ReviewListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
@@ -369,6 +372,7 @@ export type UserCreateInput = {
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -392,6 +396,7 @@ export type UserUncheckedCreateInput = {
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -415,6 +420,7 @@ export type UserUpdateInput = {
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -438,6 +444,7 @@ export type UserUncheckedUpdateInput = {
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -658,6 +665,20 @@ export type UserUpdateOneRequiredWithoutProviderOrdersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutProviderOrdersInput, Prisma.UserUpdateWithoutProviderOrdersInput>, Prisma.UserUncheckedUpdateWithoutProviderOrdersInput>
 }
 
+export type UserCreateNestedOneWithoutOrderItemInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrderItemInput, Prisma.UserUncheckedCreateWithoutOrderItemInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrderItemInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutOrderItemNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrderItemInput, Prisma.UserUncheckedCreateWithoutOrderItemInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrderItemInput
+  upsert?: Prisma.UserUpsertWithoutOrderItemInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOrderItemInput, Prisma.UserUpdateWithoutOrderItemInput>, Prisma.UserUncheckedUpdateWithoutOrderItemInput>
+}
+
 export type UserCreateWithoutSessionsInput = {
   id: string
   name: string
@@ -676,6 +697,7 @@ export type UserCreateWithoutSessionsInput = {
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
@@ -698,6 +720,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
@@ -736,6 +759,7 @@ export type UserUpdateWithoutSessionsInput = {
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
@@ -758,6 +782,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -780,6 +805,7 @@ export type UserCreateWithoutAccountsInput = {
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
 }
@@ -802,6 +828,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
 }
@@ -840,6 +867,7 @@ export type UserUpdateWithoutAccountsInput = {
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
 }
@@ -862,6 +890,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -883,6 +912,7 @@ export type UserCreateWithoutMealsInput = {
   restaurant_name?: string | null
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -905,6 +935,7 @@ export type UserUncheckedCreateWithoutMealsInput = {
   restaurant_name?: string | null
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -943,6 +974,7 @@ export type UserUpdateWithoutMealsInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -965,6 +997,7 @@ export type UserUncheckedUpdateWithoutMealsInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -988,6 +1021,7 @@ export type UserCreateWithoutReviewInput = {
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
 }
@@ -1010,6 +1044,7 @@ export type UserUncheckedCreateWithoutReviewInput = {
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
 }
@@ -1048,6 +1083,7 @@ export type UserUpdateWithoutReviewInput = {
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
 }
@@ -1070,6 +1106,7 @@ export type UserUncheckedUpdateWithoutReviewInput = {
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -1091,6 +1128,7 @@ export type UserCreateWithoutCustomerOrdersInput = {
   restaurant_name?: string | null
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1113,6 +1151,7 @@ export type UserUncheckedCreateWithoutCustomerOrdersInput = {
   restaurant_name?: string | null
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1140,6 +1179,7 @@ export type UserCreateWithoutProviderOrdersInput = {
   restaurant_name?: string | null
   meals?: Prisma.MealCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
+  orderItem?: Prisma.OrderItemCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1162,6 +1202,7 @@ export type UserUncheckedCreateWithoutProviderOrdersInput = {
   restaurant_name?: string | null
   meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
   customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
+  orderItem?: Prisma.OrderItemUncheckedCreateNestedManyWithoutUserInput
   review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1200,6 +1241,7 @@ export type UserUpdateWithoutCustomerOrdersInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1222,6 +1264,7 @@ export type UserUncheckedUpdateWithoutCustomerOrdersInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1255,6 +1298,7 @@ export type UserUpdateWithoutProviderOrdersInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
+  orderItem?: Prisma.OrderItemUpdateManyWithoutUserNestedInput
   review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1277,6 +1321,115 @@ export type UserUncheckedUpdateWithoutProviderOrdersInput = {
   restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
   customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
+  orderItem?: Prisma.OrderItemUncheckedUpdateManyWithoutUserNestedInput
+  review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutOrderItemInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  role?: $Enums.UserRole
+  phone?: string | null
+  status?: $Enums.Status
+  address?: string | null
+  description?: string | null
+  isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealCreateNestedManyWithoutProviderInput
+  customerOrders?: Prisma.OrderCreateNestedManyWithoutCustomerInput
+  providerOrders?: Prisma.OrderCreateNestedManyWithoutProviderInput
+  review?: Prisma.ReviewCreateNestedManyWithoutCustomerInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutOrderItemInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  role?: $Enums.UserRole
+  phone?: string | null
+  status?: $Enums.Status
+  address?: string | null
+  description?: string | null
+  isActive?: boolean
+  restaurant_name?: string | null
+  meals?: Prisma.MealUncheckedCreateNestedManyWithoutProviderInput
+  customerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutCustomerInput
+  providerOrders?: Prisma.OrderUncheckedCreateNestedManyWithoutProviderInput
+  review?: Prisma.ReviewUncheckedCreateNestedManyWithoutCustomerInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutOrderItemInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrderItemInput, Prisma.UserUncheckedCreateWithoutOrderItemInput>
+}
+
+export type UserUpsertWithoutOrderItemInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutOrderItemInput, Prisma.UserUncheckedUpdateWithoutOrderItemInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrderItemInput, Prisma.UserUncheckedCreateWithoutOrderItemInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutOrderItemInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutOrderItemInput, Prisma.UserUncheckedUpdateWithoutOrderItemInput>
+}
+
+export type UserUpdateWithoutOrderItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUpdateManyWithoutProviderNestedInput
+  customerOrders?: Prisma.OrderUpdateManyWithoutCustomerNestedInput
+  providerOrders?: Prisma.OrderUpdateManyWithoutProviderNestedInput
+  review?: Prisma.ReviewUpdateManyWithoutCustomerNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutOrderItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  restaurant_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meals?: Prisma.MealUncheckedUpdateManyWithoutProviderNestedInput
+  customerOrders?: Prisma.OrderUncheckedUpdateManyWithoutCustomerNestedInput
+  providerOrders?: Prisma.OrderUncheckedUpdateManyWithoutProviderNestedInput
   review?: Prisma.ReviewUncheckedUpdateManyWithoutCustomerNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1291,6 +1444,7 @@ export type UserCountOutputType = {
   meals: number
   customerOrders: number
   providerOrders: number
+  orderItem: number
   review: number
   accounts: number
   sessions: number
@@ -1300,6 +1454,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   meals?: boolean | UserCountOutputTypeCountMealsArgs
   customerOrders?: boolean | UserCountOutputTypeCountCustomerOrdersArgs
   providerOrders?: boolean | UserCountOutputTypeCountProviderOrdersArgs
+  orderItem?: boolean | UserCountOutputTypeCountOrderItemArgs
   review?: boolean | UserCountOutputTypeCountReviewArgs
   accounts?: boolean | UserCountOutputTypeCountAccountsArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
@@ -1334,6 +1489,13 @@ export type UserCountOutputTypeCountCustomerOrdersArgs<ExtArgs extends runtime.T
  */
 export type UserCountOutputTypeCountProviderOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.OrderWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountOrderItemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrderItemWhereInput
 }
 
 /**
@@ -1376,6 +1538,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   customerOrders?: boolean | Prisma.User$customerOrdersArgs<ExtArgs>
   providerOrders?: boolean | Prisma.User$providerOrdersArgs<ExtArgs>
+  orderItem?: boolean | Prisma.User$orderItemArgs<ExtArgs>
   review?: boolean | Prisma.User$reviewArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -1438,6 +1601,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   meals?: boolean | Prisma.User$mealsArgs<ExtArgs>
   customerOrders?: boolean | Prisma.User$customerOrdersArgs<ExtArgs>
   providerOrders?: boolean | Prisma.User$providerOrdersArgs<ExtArgs>
+  orderItem?: boolean | Prisma.User$orderItemArgs<ExtArgs>
   review?: boolean | Prisma.User$reviewArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -1452,6 +1616,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     meals: Prisma.$MealPayload<ExtArgs>[]
     customerOrders: Prisma.$OrderPayload<ExtArgs>[]
     providerOrders: Prisma.$OrderPayload<ExtArgs>[]
+    orderItem: Prisma.$OrderItemPayload<ExtArgs>[]
     review: Prisma.$ReviewPayload<ExtArgs>[]
     accounts: Prisma.$AccountPayload<ExtArgs>[]
     sessions: Prisma.$SessionPayload<ExtArgs>[]
@@ -1868,6 +2033,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   meals<T extends Prisma.User$mealsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mealsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   customerOrders<T extends Prisma.User$customerOrdersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$customerOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   providerOrders<T extends Prisma.User$providerOrdersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$providerOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orderItem<T extends Prisma.User$orderItemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$orderItemArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   review<T extends Prisma.User$reviewArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   accounts<T extends Prisma.User$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2371,6 +2537,30 @@ export type User$providerOrdersArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.OrderScalarFieldEnum | Prisma.OrderScalarFieldEnum[]
+}
+
+/**
+ * User.orderItem
+ */
+export type User$orderItemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrderItem
+   */
+  select?: Prisma.OrderItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrderItem
+   */
+  omit?: Prisma.OrderItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrderItemInclude<ExtArgs> | null
+  where?: Prisma.OrderItemWhereInput
+  orderBy?: Prisma.OrderItemOrderByWithRelationInput | Prisma.OrderItemOrderByWithRelationInput[]
+  cursor?: Prisma.OrderItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrderItemScalarFieldEnum | Prisma.OrderItemScalarFieldEnum[]
 }
 
 /**

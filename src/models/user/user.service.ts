@@ -54,8 +54,24 @@ const updateUserStatus = async (payload: any, id: string) => {
 
 }
 
+const deleteUser = async(id: string) => {
+    try {
+        const res = await prisma.user.delete({
+            where: {
+                id
+            }
+        });
+        return res
+    } catch (e) {
+        return e;
+    }
+
+}
+
+
 export const userService = {
     userList,
     updateUser,
-    updateUserStatus
+    updateUserStatus, 
+    deleteUser
 }

@@ -2,7 +2,17 @@ import { prisma } from "../../lib/prisma"
 
 const mealList = async () => {
     try {
-        const res = await prisma.meal.findMany();
+        const res = await prisma.meal.findMany({
+             include: {
+                cuisine: true,
+                provider: {
+                    select: {
+                        name: true,
+                        id: true
+                    }
+                }
+            }
+        });
         return res
     } catch (e) {
         return e;

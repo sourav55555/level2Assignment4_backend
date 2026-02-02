@@ -1,21 +1,22 @@
 model User {
-  id              String    @id
+  id              String      @id
   name            String
-  email           String    @unique
-  emailVerified   Boolean   @default(false)
+  email           String      @unique
+  emailVerified   Boolean     @default(false)
   image           String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  role            UserRole  @default(USER)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  role            UserRole    @default(USER)
   phone           String?
-  status          Status    @default(ACTIVE)
+  status          Status      @default(ACTIVE)
   address         String?
-  description     String?   @db.VarChar(255)
-  isActive        Boolean   @default(true)
+  description     String?     @db.VarChar(255)
+  isActive        Boolean     @default(true)
   restaurant_name String?
   meals           Meal[]
-  customerOrders  Order[]   @relation("CustomerOrders")
-  providerOrders  Order[]   @relation("ProviderOrders")
+  customerOrders  Order[]     @relation("CustomerOrders")
+  providerOrders  Order[]     @relation("ProviderOrders")
+  orderItem       OrderItem[]
   review          Review[]
   accounts        Account[]
   sessions        Session[]

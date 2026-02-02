@@ -278,7 +278,7 @@ export type ReviewCreateInput = {
   updatedAt?: Date | string
   customer: Prisma.UserCreateNestedOneWithoutReviewInput
   meal: Prisma.MealCreateNestedOneWithoutReviewInput
-  order?: Prisma.OrderCreateNestedOneWithoutReviewInput
+  order?: Prisma.OrderCreateNestedOneWithoutReviewsInput
 }
 
 export type ReviewUncheckedCreateInput = {
@@ -300,7 +300,7 @@ export type ReviewUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customer?: Prisma.UserUpdateOneRequiredWithoutReviewNestedInput
   meal?: Prisma.MealUpdateOneRequiredWithoutReviewNestedInput
-  order?: Prisma.OrderUpdateOneWithoutReviewNestedInput
+  order?: Prisma.OrderUpdateOneWithoutReviewsNestedInput
 }
 
 export type ReviewUncheckedUpdateInput = {
@@ -520,7 +520,7 @@ export type ReviewCreateWithoutCustomerInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   meal: Prisma.MealCreateNestedOneWithoutReviewInput
-  order?: Prisma.OrderCreateNestedOneWithoutReviewInput
+  order?: Prisma.OrderCreateNestedOneWithoutReviewsInput
 }
 
 export type ReviewUncheckedCreateWithoutCustomerInput = {
@@ -580,7 +580,7 @@ export type ReviewCreateWithoutMealInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   customer: Prisma.UserCreateNestedOneWithoutReviewInput
-  order?: Prisma.OrderCreateNestedOneWithoutReviewInput
+  order?: Prisma.OrderCreateNestedOneWithoutReviewsInput
 }
 
 export type ReviewUncheckedCreateWithoutMealInput = {
@@ -682,7 +682,7 @@ export type ReviewUpdateWithoutCustomerInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   meal?: Prisma.MealUpdateOneRequiredWithoutReviewNestedInput
-  order?: Prisma.OrderUpdateOneWithoutReviewNestedInput
+  order?: Prisma.OrderUpdateOneWithoutReviewsNestedInput
 }
 
 export type ReviewUncheckedUpdateWithoutCustomerInput = {
@@ -722,7 +722,7 @@ export type ReviewUpdateWithoutMealInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   customer?: Prisma.UserUpdateOneRequiredWithoutReviewNestedInput
-  order?: Prisma.OrderUpdateOneWithoutReviewNestedInput
+  order?: Prisma.OrderUpdateOneWithoutReviewsNestedInput
 }
 
 export type ReviewUncheckedUpdateWithoutMealInput = {

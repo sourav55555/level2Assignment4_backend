@@ -74,8 +74,26 @@ const useStatusUpdate = async (req: Request, res: Response) => {
     }
 }
 
+const deleteUser = async (req: Request, res: Response) => { 
+    try {
+        const {id} = req.params;
+        const result = await userService.deleteUser(id as string);
+        res.status(200).json({
+            data: result
+        })
+    
+    } catch (e) {
+        res.status(400).json({
+            error: "cuisine delete failed",
+            message: e
+        })
+    }
+}
+
+
 export const userController = {
     getAlluser,
     updateUser,
-    useStatusUpdate
+    useStatusUpdate,
+    deleteUser
 }

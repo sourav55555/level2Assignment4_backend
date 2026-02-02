@@ -8,9 +8,12 @@ import { orderController } from "./orders.controller";
 const router = Router();
 
 // router.get("/", orderController.getAllorder)
-router.post("/", authenticate(UserRole.USER, UserRole.PROVIDER) , orderController.createOrder)
+router.post("/cart", authenticate(UserRole.USER) , orderController.createOrderItem)
+router.get("/cart", authenticate(UserRole.USER) , orderController.getOrderItem)
+router.post("/", authenticate(UserRole.USER) , orderController.createOrder)
 router.get("/status/:id", authenticate(UserRole.USER, UserRole.PROVIDER) , orderController.orderStatus)
 router.patch("/status/:id", authenticate(UserRole.USER, UserRole.PROVIDER) , orderController.changeOrderStatus)
-router.get("/", authenticate(UserRole.ADMIN) ,orderController.allOrders)
+router.get("/", authenticate(UserRole.ADMIN), orderController.allOrders)
+router.get("/user", authenticate(UserRole.USER), orderController.userOrders)
 
 export default router;

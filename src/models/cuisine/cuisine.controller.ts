@@ -26,12 +26,44 @@ const getAllCuisine = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
+            error: "cuisine list failed",
+            message: e
+        })
+    }
+}
+const createCuisine = async (req: Request, res: Response) => { 
+    try {
+        const payload = req.body;
+        const result = await cuisineService.createCuisine(payload);
+        res.status(200).json({
+            data: result
+        })
+    
+    } catch (e) {
+        res.status(400).json({
             error: "cuisine creation failed",
+            message: e
+        })
+    }
+}
+const deleteCuisine = async (req: Request, res: Response) => { 
+    try {
+        const {id} = req.params;
+        const result = await cuisineService.deleteCuisine(id as string);
+        res.status(200).json({
+            data: result
+        })
+    
+    } catch (e) {
+        res.status(400).json({
+            error: "cuisine delete failed",
             message: e
         })
     }
 }
 
 export const cuisineController = {
-    getAllCuisine
+    getAllCuisine,
+    createCuisine,
+    deleteCuisine
 }

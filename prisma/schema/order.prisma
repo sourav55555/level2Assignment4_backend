@@ -1,3 +1,30 @@
+// model Order {
+//   id            String        @id @default(uuid())
+//   customerId    String
+//   providerId    String
+//   status        OrderStatus   @default(PENDING)
+//   totalAmount   Float
+//   address       String
+//   paymentStatus PaymentStatus @default(PENDING)
+//   createdAt     DateTime      @default(now())
+//   updatedAt     DateTime      @updatedAt
+//   customer      User          @relation("CustomerOrders", fields: [customerId], references: [id])
+//   provider      User          @relation("ProviderOrders", fields: [providerId], references: [id])
+//   orderItems    OrderItem[]
+//   review        Review[]
+// }
+
+// model OrderItem {
+//   id        String   @id @default(uuid())
+//   orderId   String
+//   mealId    String
+//   quantity  Int
+//   price     Float
+//   createdAt DateTime @default(now())
+//   meal      Meal     @relation(fields: [mealId], references: [id])
+//   order     Order    @relation(fields: [orderId], references: [id])
+// }
+
 model Order {
   id            String        @id @default(uuid())
   customerId    String
@@ -8,21 +35,25 @@ model Order {
   paymentStatus PaymentStatus @default(PENDING)
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
-  customer      User          @relation("CustomerOrders", fields: [customerId], references: [id])
-  provider      User          @relation("ProviderOrders", fields: [providerId], references: [id])
-  orderItems    OrderItem[]
-  review        Review[]
+
+  customer   User        @relation("CustomerOrders", fields: [customerId], references: [id])
+  provider   User        @relation("ProviderOrders", fields: [providerId], references: [id])
+  orderItems OrderItem[] // ← relation lives here logically, FK lives below
+  reviews    Review[]
 }
 
 model OrderItem {
   id        String   @id @default(uuid())
-  orderId   String
+  orderId   String?
+  userId    String 
   mealId    String
   quantity  Int
   price     Float
   createdAt DateTime @default(now())
-  meal      Meal     @relation(fields: [mealId], references: [id])
-  order     Order    @relation(fields: [orderId], references: [id])
+
+  order Order? @relation(fields: [orderId], references: [id])
+  user  User   @relation(fields: [userId], references: [id])
+  meal  Meal   @relation(fields: [mealId], references: [id])
 }
 
 enum OrderStatus {

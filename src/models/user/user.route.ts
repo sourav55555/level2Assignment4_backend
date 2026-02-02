@@ -10,5 +10,6 @@ const router = Router();
 router.get("/",  authenticate( UserRole.ADMIN),userController.getAlluser)
 router.patch("/:id",  userController.useStatusUpdate)
 router.put("/", authenticate(UserRole.USER, UserRole.PROVIDER, UserRole.ADMIN) ,userController.updateUser)
+router.delete("/", authenticate( UserRole.ADMIN) ,userController.deleteUser)
 
 export default router
