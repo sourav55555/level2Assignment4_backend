@@ -1,7 +1,8 @@
+import { prisma } from "@/lib/prisma.js"
+import { UserRole } from "@prisma/client"
 import { error } from "node:console"
 
-import { UserRole } from "../lib/constants"
-import { prisma } from "../lib/prisma"
+
 
 
 const seedAdmin = async () => {

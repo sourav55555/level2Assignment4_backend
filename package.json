@@ -4,17 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "dev": "tsx watch src/server.ts",
-
-      "build": "tsc && prisma generate",
-
-      "start": "node dist/server.js",
-
-      "prisma:generate": "prisma generate",
-      "prisma:migrate": "prisma migrate deploy",
-
-      "seed:admin": "tsx src/scripts/seedAdmin.ts"
-    },
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc && tsc-alias && prisma generate",
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy",
+    "seed:admin": "tsx src/scripts/seedAdmin.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +20,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^25.1.0",
     "prisma": "^7.3.0",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },

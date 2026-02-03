@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { reviewService } from "./review.service";
+import { reviewService } from "./review.service.js";
+
 
 
 // const createreview = async (req: Request, res: Response) => {

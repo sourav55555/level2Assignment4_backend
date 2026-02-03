@@ -1,6 +1,7 @@
+import { DietPreference } from "@prisma/client";
 import { Request, Response } from "express";
-import { mealService } from "./meal.service";
-import { DietPreference } from "../../../prisma/generated/prisma/enums";
+import { mealService } from "./meal.service.js";
+
 
 
 

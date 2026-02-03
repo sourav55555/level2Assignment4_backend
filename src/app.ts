@@ -1,15 +1,15 @@
 import express from 'express'
 import cors from 'cors'
 import { toNodeHandler } from 'better-auth/node';
-import { auth } from './lib/auth.js';
-import { notFound } from './lib/notFound.js';
-import providerRouter from './models/providers/providers.routes.js'
-import mealRouter from './models/meal/meal.router.js'
-import cuisineRouter from './models/cuisine/cuisine.route.js'
-import orderRouter from './models/orders/orders.route.js'
-import reviewRouter from './models/review/review.route.js'
-import userRouter from './models/user/user.route.js'
-import adminRouter from './models/admin/admin.route.js'
+import { auth } from '@/lib/auth.js';
+import { notFound } from '@/lib/notFound.js';
+import providerRouter from '@/models/providers/providers.routes.js'
+import mealRouter from '@/models/meal/meal.router.js'
+import cuisineRouter from '@/models/cuisine/cuisine.route.js'
+import orderRouter from '@/models/orders/orders.route.js'
+import reviewRouter from '@/models/review/review.route.js'
+import userRouter from '@/models/user/user.route.js'
+import adminRouter from '@/models/admin/admin.route.js'
 
 
 const app = express()

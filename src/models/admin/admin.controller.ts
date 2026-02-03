@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { adminService } from "./admin.service";
+import { adminService } from "./admin.service.js";
 
 
 // const createadmin = async (req: Request, res: Response) => {

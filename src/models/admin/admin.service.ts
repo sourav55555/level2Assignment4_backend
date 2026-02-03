@@ -1,6 +1,8 @@
-import { OrderStatus } from "../../../prisma/generated/prisma/enums"
-import { UserRole } from "../../lib/constants"
-import { prisma } from "../../lib/prisma"
+
+
+import { prisma } from "@/lib/prisma.js"
+import { OrderStatus, UserRole } from "@prisma/client"
+
 
 const getDashboard = async () => {
     try {

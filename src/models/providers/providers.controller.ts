@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { providerService } from "./providers.service";
+import { providerService } from "./providers.service.js";
 
 const createMeal = async (req: Request, res: Response) => {
     try {

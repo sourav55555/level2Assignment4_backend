@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from "express"
-import {auth as betterAuth} from '../lib/auth'
-import { UserRole } from "../lib/constants"
+
+import { UserRole } from "@prisma/client"
+import { auth } from "@/lib/auth.js"
+
 
 
 declare global{
@@ -23,7 +25,7 @@ const authenticate = (...roles: UserRole[]) => {
 
  
         try {
-                const session = await betterAuth.api.getSession({
+                const session = await auth.api.getSession({
                 headers: req.headers as any
             })
  

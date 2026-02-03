@@ -1,8 +1,9 @@
 import { Router } from "express";
+import { cuisineController } from "./cuisine.controller.js";
+import authenticate from "@/middleware/authMiddleware.js";
+import { UserRole } from "@prisma/client";
 // import { quisineController } from "./quisines.controller";
-import authenticate from "../../middleware/authMiddleware";
-import { UserRole } from "../../lib/constants";
-import { cuisineController } from "./cuisine.controller";
+
 
 
 const router = Router();

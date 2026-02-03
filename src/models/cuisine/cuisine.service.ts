@@ -1,5 +1,6 @@
-import { Cuisine } from "../../../prisma/generated/prisma/client";
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@/lib/prisma.js";
+import { Cuisine } from "@prisma/client";
+
 
 const cuisineList = async () => {
     try {

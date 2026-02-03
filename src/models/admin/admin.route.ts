@@ -1,9 +1,12 @@
 import { Router } from "express";
 // import { quisineController } from "./quisines.controller";
-import authenticate from "../../middleware/authMiddleware";
 
-import { adminController } from "./admin.controller";
-import { UserRole } from "../../lib/constants";
+
+
+
+import authenticate from "@/middleware/authMiddleware.js";
+import { adminController } from "./admin.controller.js";
+import { UserRole } from "@prisma/client";
 
 
 const router = Router();

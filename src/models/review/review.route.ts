@@ -1,8 +1,9 @@
 import { Router } from "express";
+import { reviewController } from "./review.controller.js";
+import authenticate from "@/middleware/authMiddleware.js";
+import { UserRole } from "@prisma/client";
 // import { quisineController } from "./quisines.controller";
-import authenticate from "../../middleware/authMiddleware";
-import { UserRole } from "../../lib/constants";
-import { reviewController } from "./review.controller";
+
 
 
 const router = Router();

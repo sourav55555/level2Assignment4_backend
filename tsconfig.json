@@ -7,8 +7,7 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ESNext",
-    "moduleResolution": "node",
+
     "target": "ES2023",
     "types": [],
     // For nodejs:
@@ -41,7 +40,13 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-       "esModuleInterop": true
+       "esModuleInterop": true,
+        "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
     // "ignoreDeprecations": "6.0"
   },
   "include": ["src/**/*"],

@@ -1,7 +1,8 @@
-import { Router } from "express";;
-import { UserRole } from "../../lib/constants";
-import { mealController } from "./meal.controller";
-import authenticate from "../../middleware/authMiddleware";
+import { Router } from "express";import { mealController } from "./meal.controller.js";
+import authenticate from "@/middleware/authMiddleware.js";
+import { UserRole } from "@prisma/client";
+;
+
 
 
 const router = Router();

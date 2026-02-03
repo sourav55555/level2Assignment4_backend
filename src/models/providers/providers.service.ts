@@ -1,5 +1,6 @@
-import { MealStatus, OrderStatus } from "../../../prisma/generated/prisma/enums"
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@/lib/prisma.js"
+import { MealStatus, OrderStatus } from "@prisma/client"
+
 
 const createMeal = async (payload: any, userId: string) => {
 

@@ -1,5 +1,7 @@
-import { OrderStatus } from "../../../prisma/generated/prisma/enums";
-import { prisma } from "../../lib/prisma"
+import { prisma } from "@/lib/prisma.js";
+import { OrderStatus } from "@prisma/client";
+
+
 
 interface CreateOrderPayload {
   providerId: string;
