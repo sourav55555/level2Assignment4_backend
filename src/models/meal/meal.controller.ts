@@ -1,21 +1,38 @@
 import { Request, Response } from "express";
 import { mealService } from "./meal.service";
+import { DietPreference } from "../../../prisma/generated/prisma/enums";
 
 
 
-const getAllMeal = async (req: Request, res: Response) => { 
-    try {
-        const result = await mealService.mealList();
-        res.status(200).json({
-            data: result
-        })
-    
-    } catch (e) {
-        res.status(400).json({
-            error: "meal creation failed",
-            message: e
-        })
-    }
+const getAllMeal = async (req: Request, res: Response) => {
+  try {
+    const { cuisineIds, dietPreferences, minPrice, maxPrice } = req.query
+
+    const filters = {
+      ...(cuisineIds && {
+        cuisineIds: String(cuisineIds).split(","),
+      }),
+
+      ...(dietPreferences && {
+        dietPreferences: String(dietPreferences)
+          .split(",") as DietPreference[],
+      }),
+
+      ...(minPrice && { minPrice: Number(minPrice) }),
+      ...(maxPrice && { maxPrice: Number(maxPrice) }),
+      }
+      console.log(filters, "filters")
+
+    const result = await mealService.mealList(filters)
+
+    res.status(200).json({ success: true, data: result })
+  } catch (e) {
+    res.status(400).json({
+      success: false,
+      message: "Failed to fetch meals",
+      error: e instanceof Error ? e.message : e,
+    })
+  }
 }
 
 const getMeal = async (req: Request, res: Response) => { 

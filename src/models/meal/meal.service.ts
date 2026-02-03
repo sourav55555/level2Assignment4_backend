@@ -1,24 +1,50 @@
+import { DietPreference } from "../../../prisma/generated/prisma/enums"
 import { prisma } from "../../lib/prisma"
-
-const mealList = async () => {
-    try {
-        const res = await prisma.meal.findMany({
-             include: {
-                cuisine: true,
-                provider: {
-                    select: {
-                        name: true,
-                        id: true
-                    }
-                }
-            }
-        });
-        return res
-    } catch (e) {
-        return e;
-    }
-
+type MealFilter = {
+  cuisineIds?: string[]        // 👈 plural
+  dietPreferences?: DietPreference[]
+  minPrice?: number
+  maxPrice?: number
 }
+
+
+
+const mealList = async (filters?: MealFilter) => {
+  return prisma.meal.findMany({
+    where: {
+      status: "AVAILABLE",
+
+      ...(filters?.cuisineIds?.length && {
+        cuisineId: {
+          in: filters.cuisineIds,
+        },
+      }),
+
+      ...(filters?.dietPreferences?.length && {
+        dietPreference: {
+          in: filters.dietPreferences,
+        },
+      }),
+
+      ...(filters?.minPrice || filters?.maxPrice
+        ? {
+            price: {
+              ...(filters.minPrice && { gte: filters.minPrice }),
+              ...(filters.maxPrice && { lte: filters.maxPrice }),
+            },
+          }
+        : {}),
+    },
+
+    include: {
+      cuisine: true,
+      provider: {
+        select: { id: true, name: true },
+      },
+    },
+  })
+}
+
 
 const getMeal = async (mealId: string) => {
     try {
