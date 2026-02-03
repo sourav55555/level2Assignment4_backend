@@ -13,7 +13,8 @@ router.get("/cart", authenticate(UserRole.USER) , orderController.getOrderItem)
 router.post("/", authenticate(UserRole.USER) , orderController.createOrder)
 router.get("/status/:id", authenticate(UserRole.USER, UserRole.PROVIDER) , orderController.orderStatus)
 router.patch("/status/:id", authenticate(UserRole.USER, UserRole.PROVIDER) , orderController.changeOrderStatus)
-router.get("/", authenticate(UserRole.ADMIN), orderController.allOrders)
+router.get("/", authenticate(UserRole.ADMIN) ,orderController.allOrders)
+router.get("/provider", authenticate(UserRole.ADMIN) ,orderController.providerOrders)
 router.get("/user", authenticate(UserRole.USER), orderController.userOrders)
 
 export default router;

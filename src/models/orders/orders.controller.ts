@@ -48,6 +48,23 @@ const userOrders = async (req: Request, res: Response) => {
         })
     }
 }
+const providerOrders = async (req: Request, res: Response) => { 
+    try {
+        const id = req.user?.id;
+        console.log(id)
+        const result = await orderService.providerOrders(id as string);
+        console.log(result, "res")
+        res.status(200).json({
+            data: result
+        })
+    
+    } catch (e) {
+        res.status(400).json({
+            error: "order creation failed",
+            message: e
+        })
+    }
+}
 const createOrder = async (req: Request, res: Response) => {
     try {
         const payload = req.body;
@@ -146,6 +163,7 @@ export const orderController = {
     allOrders,
     userOrders,
     createOrderItem,
-    getOrderItem
+    getOrderItem,
+    providerOrders
     
 }
