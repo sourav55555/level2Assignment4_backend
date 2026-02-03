@@ -26,7 +26,7 @@ const getAlluser = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
-            error: "user creation failed",
+            error: "Failed to fetch users",
             message: e
         })
     }
@@ -37,17 +37,17 @@ const updateUser = async (req: Request, res: Response) => {
         const payload = req.body;
         const id = req.user?.id;
     
-        console.log(id, "iddd")
+
 
         const result = await userService.updateUser(payload, id!);
-        console.log(result, "result")
+
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "User update failed",
             message: e
         })
     }
@@ -57,18 +57,16 @@ const useStatusUpdate = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
         const {status} = req.body;
-    
-        console.log(id, "iddd")
 
         const result = await userService.updateUserStatus({status}, id as string);
-        console.log(result, "result")
+
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "User status update failed",
             message: e
         })
     }
@@ -84,7 +82,7 @@ const deleteUser = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
-            error: "cuisine delete failed",
+            error: "User deletion failed",
             message: e
         })
     }
@@ -106,7 +104,7 @@ const getMyProfile = async (req: Request, res: Response) => {
     }
 }
 
-    
+
 
 export const userController = {
     getAlluser,

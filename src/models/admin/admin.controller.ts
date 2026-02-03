@@ -26,7 +26,7 @@ const getDashboard = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
-            error: "admin creation failed",
+            error: "Failed to fetch admin dashboard",
             message: e
         })
     }

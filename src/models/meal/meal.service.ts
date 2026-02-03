@@ -94,7 +94,7 @@ const updateMeal = async ( payload: Partial<any>,mealId: string, userId: string)
         })
         return res;
     } catch (e) {
-        console.log(e, "error update meal")
+  
         return e
     }
 }

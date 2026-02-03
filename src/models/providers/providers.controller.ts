@@ -5,9 +5,9 @@ const createMeal = async (req: Request, res: Response) => {
     try {
         const payload = req.body;
         const userId = req.user?.id;
-        console.log(payload,userId, "payload")
+
         const result = await providerService.createMeal(payload, userId!);
-        console.log(result, "result")
+   
         res.status(201).json({
             success: true,
             data: result
@@ -25,14 +25,14 @@ const getMeals = async (req: Request, res: Response) => {
         const userId = req.user?.id;
 
         const result = await providerService.getMealsData(userId!);
-        console.log(result, "result")
+   
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Failed to fetch meals",
             message: e
         })
     }
@@ -43,14 +43,14 @@ const dashboardData = async (req: Request, res: Response) => {
         const userId = req.user?.id;
 
         const result = await providerService.dashboardData(userId!);
-        console.log(result, "result")
+
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Failed to fetch dashboard data",
             message: e
         })
     }
@@ -61,14 +61,14 @@ const getPrividerProfile = async (req: Request, res: Response) => {
         const {id} = req.params;
 
         const result = await providerService.getPrividerProfile(id as string);
-        console.log(result, "result")
+ 
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Failed to fetch provider profile",
             message: e
         })
     }

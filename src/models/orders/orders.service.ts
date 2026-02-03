@@ -86,10 +86,10 @@ const createOrderItem = async (payload: any, userId: string) => {
                 userId
             }
         })
-        console.log(res, "response")
+
         return res
     } catch (e) {
-        console.log(e)
+
         return e
     }
 
@@ -115,7 +115,7 @@ const getOrderItem = async ( userId: string) => {
         })
         return res
     } catch (e) {
-        console.log(e)
+
         return e
     }
 

@@ -25,10 +25,10 @@ const updateUser = async (payload: any, id: string) => {
                 ...payload
             }
         })
-        console.log(res, "response")
+
         return res
     } catch (e) {
-        console.log(e)
+
         return e
     }
 
@@ -45,10 +45,10 @@ const updateUserStatus = async (payload: any, id: string) => {
                 ...payload
             }
         })
-        console.log(res, "response")
+
         return res
     } catch (e) {
-        console.log(e)
+
         return e
     }
 

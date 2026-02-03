@@ -6,13 +6,7 @@
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
 DATABASE_URL="postgresql://neondb_owner:npg_kq1oT9YyvDUn@ep-divine-bonus-ah7jtuw3-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-# uncomment next line if you use Prisma <5.10
-# DATABASE_URL_UNPOOLED="postgresql://neondb_owner:npg_kq1oT9YyvDUn@ep-divine-bonus-ah7jtuw3.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-# DATABASE_USER="username"
-# DATABASE_PASSWORD="password"
-# DATABASE_NAME="mydb"
-# DATABASE_HOST="localhost"
-# DATABASE_PORT=3306
+
 PORT=3000
 BETTER_AUTH_SECRET=b8a277caa48235a65c6b3b40144d45d69550d669ce91e8ec6ab3f86b275a3cf3
 BETTER_AUTH_URL=http://localhost:3000

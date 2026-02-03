@@ -19,10 +19,10 @@ const createReview = async (payload: any, customerId: string) => {
                 customerId: customerId,
             }
         })
-        console.log(res, "response")
+  
         return res
     } catch (e) {
-        console.log(e)
+
         return e
     }
 

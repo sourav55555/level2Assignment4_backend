@@ -26,7 +26,7 @@ const getAllreview = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
-            error: "review creation failed",
+            error: "Failed to fetch reviews",
             message: e
         })
     }
@@ -37,17 +37,17 @@ const createReview = async (req: Request, res: Response) => {
         const payload = req.body;
         const customerId = req.user?.id;
     
-        console.log(customerId, "iddd")
+
 
         const result = await reviewService.createReview(payload, customerId!);
-        console.log(result, "result")
+  
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Review creation failed",
             message: e
         })
     }

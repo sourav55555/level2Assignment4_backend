@@ -26,7 +26,7 @@ const allOrders = async (req: Request, res: Response) => {
     
     } catch (e) {
         res.status(400).json({
-            error: "order creation failed",
+            error: "Failed to fetch all orders",
             message: e
         })
     }
@@ -34,16 +34,16 @@ const allOrders = async (req: Request, res: Response) => {
 const userOrders = async (req: Request, res: Response) => { 
     try {
         const id = req.user?.id;
-        console.log(id)
+   
         const result = await orderService.userOrders(id as string);
-        console.log(result, "res")
+     
         res.status(200).json({
             data: result
         })
     
     } catch (e) {
         res.status(400).json({
-            error: "order creation failed",
+            error: "Failed to fetch user orders",
             message: e
         })
     }
@@ -51,16 +51,16 @@ const userOrders = async (req: Request, res: Response) => {
 const providerOrders = async (req: Request, res: Response) => { 
     try {
         const id = req.user?.id;
-        console.log(id)
+
         const result = await orderService.providerOrders(id as string);
-        console.log(result, "res")
+ 
         res.status(200).json({
             data: result
         })
     
     } catch (e) {
         res.status(400).json({
-            error: "order creation failed",
+            error: "Failed to fetch provider orders",
             message: e
         })
     }
@@ -69,16 +69,16 @@ const createOrder = async (req: Request, res: Response) => {
     try {
         const payload = req.body;
         const userId = req.user?.id;
-        console.log(payload,userId, "payload")
+     
         const result = await orderService.createOrder(payload, userId!);
-        console.log(result, "result")
+ 
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Order creation failed",
             message: e
         })
     }
@@ -87,16 +87,16 @@ const createOrderItem = async (req: Request, res: Response) => {
     try {
         const payload = req.body;
         const userId = req.user?.id;
-        console.log(payload,userId, "payload")
+     
         const result = await orderService.createOrderItem(payload, userId!);
-        console.log(result, "result")
+ 
         res.status(201).json({
             success: true,
             data: result
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "OrderItem creation failed",
             message: e
         })
     }
@@ -113,7 +113,7 @@ const orderStatus = async (req: Request, res: Response) => {
         })
     } catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Failed to fetch order status",
             message: e
         })
     }
@@ -150,7 +150,7 @@ const getOrderItem = async (req: Request, res: Response) => {
         })
     } catch (e) {
         res.status(400).json({
-            error: "Order status change failed",
+            error: "Failed to fetch order items",
             message: e
         })
     }
