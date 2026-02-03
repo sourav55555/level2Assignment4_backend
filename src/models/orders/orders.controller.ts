@@ -33,8 +33,10 @@ const allOrders = async (req: Request, res: Response) => {
 }
 const userOrders = async (req: Request, res: Response) => { 
     try {
-        const  id  = req.user?.id;
+        const id = req.user?.id;
+        console.log(id)
         const result = await orderService.userOrders(id as string);
+        console.log(result, "res")
         res.status(200).json({
             data: result
         })

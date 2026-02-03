@@ -23,6 +23,22 @@ const createCuisine = async(payload: Cuisine) => {
     }
 
 }
+const updateCuisine = async(id: string, payload: Cuisine) => {
+    try {
+        const res = await prisma.cuisine.update({
+            where: {
+                id
+            },
+            data: {
+                ...payload
+            }
+        });
+        return res
+    } catch (e) {
+        return e;
+    }
+
+}
 const deleteCuisine = async(id: string) => {
     try {
         const res = await prisma.cuisine.delete({
@@ -40,5 +56,6 @@ const deleteCuisine = async(id: string) => {
 export const cuisineService = {
     cuisineList,
     createCuisine,
-    deleteCuisine
+    deleteCuisine,
+    updateCuisine
 }

@@ -46,6 +46,22 @@ const createCuisine = async (req: Request, res: Response) => {
         })
     }
 }
+    const updateCuisine = async (req: Request, res: Response) => { 
+        try {
+            const payload = req.body;
+            const {id} = req.params;
+            const result = await cuisineService.updateCuisine(id as string, payload);
+            res.status(200).json({
+                data: result
+            })
+        
+        } catch (e) {
+            res.status(400).json({
+                error: "cuisine update failed",
+                message: e
+            })
+        }
+    }
 const deleteCuisine = async (req: Request, res: Response) => { 
     try {
         const {id} = req.params;
@@ -65,5 +81,6 @@ const deleteCuisine = async (req: Request, res: Response) => {
 export const cuisineController = {
     getAllCuisine,
     createCuisine,
-    deleteCuisine
+    deleteCuisine,
+    updateCuisine
 }

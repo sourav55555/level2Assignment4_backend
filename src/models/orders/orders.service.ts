@@ -25,7 +25,7 @@ const userOrders = async (id: string) => {
     try {
       const res = await prisma.order.findMany({
         where:{
-            id
+            customerId: id
           }
         });
         return res
@@ -60,7 +60,17 @@ const getOrderItem = async ( userId: string) => {
         const res = await prisma.orderItem.findMany({
           where: {
               userId
+          },
+          include: {
+            meal: {
+              select: {
+                name: true,
+                price: true,
+                id: true,
+                imageUrl: true
+              }
             }
+          }
         })
         return res
     } catch (e) {
@@ -101,15 +111,16 @@ export async function createOrder(
       items.map((i) => i.meal.providerId)
     );
 
-    if (providerIds.size !== 1 || !providerIds.has(payload.providerId)) {
+    const providerIdsArray = Array.from(providerIds);
+
+    if (providerIdsArray.length !== 1) {
       throw new Error("Items must belong to the same provider");
     }
-
 
     const order = await tx.order.create({
       data: {
         customerId: userId,
-        providerId: payload.providerId,
+        providerId: providerIdsArray[0]!,
         address: payload.address,
         totalAmount: payload.totalAmount,
       },

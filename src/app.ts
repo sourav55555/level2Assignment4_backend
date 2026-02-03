@@ -9,6 +9,7 @@ import cuisineRouter from './models/cuisine/cuisine.route.js'
 import orderRouter from './models/orders/orders.route.js'
 import reviewRouter from './models/review/review.route.js'
 import userRouter from './models/user/user.route.js'
+import adminRouter from './models/admin/admin.route.js'
 
 
 const app = express()
@@ -40,6 +41,7 @@ app.use("/orders", orderRouter)
 app.use("/cuisine", cuisineRouter)
 app.use("/review", reviewRouter)
 app.use("/user", userRouter)
+app.use("/admin", adminRouter)
 
 app.use(notFound)
 
