@@ -90,10 +90,28 @@ const deleteUser = async (req: Request, res: Response) => {
     }
 }
 
+const getMyProfile = async (req: Request, res: Response) => { 
+    try {
+        const userId = req.user?.id;
+        const result = await userService.getMyProfile(userId!);
+        res.status(200).json({
+            data: result
+        })
+    
+    } catch (e) {
+        res.status(400).json({
+            error: "Failed to get profile",
+            message: e
+        })
+    }
+}
+
+    
 
 export const userController = {
     getAlluser,
     updateUser,
     useStatusUpdate,
-    deleteUser
+    deleteUser,
+    getMyProfile
 }
