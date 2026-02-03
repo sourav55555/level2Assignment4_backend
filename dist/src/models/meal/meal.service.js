@@ -78,7 +78,6 @@ const updateMeal = async (payload, mealId, userId) => {
         return res;
     }
     catch (e) {
-
         return e;
     }
 };

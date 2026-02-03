@@ -16,11 +16,9 @@ const createReview = async (payload, customerId) => {
                 customerId: customerId,
             }
         });
-
         return res;
     }
     catch (e) {
-
         return e;
     }
 };

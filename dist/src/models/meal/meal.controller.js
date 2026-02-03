@@ -13,7 +13,6 @@ const getAllMeal = async (req, res) => {
             ...(minPrice && { minPrice: Number(minPrice) }),
             ...(maxPrice && { maxPrice: Number(maxPrice) }),
         };
-    
         const result = await mealService.mealList(filters);
         res.status(200).json({ success: true, data: result });
     }
@@ -29,7 +28,6 @@ const getMeal = async (req, res) => {
     try {
         const mealId = req.params.id;
         const result = await mealService.getMeal(mealId);
-
         res.status(201).json({
             success: true,
             data: result
@@ -37,7 +35,7 @@ const getMeal = async (req, res) => {
     }
     catch (e) {
         res.status(400).json({
-            error: "Meal creation failed",
+            error: "Failed to fetch meal",
             message: e
         });
     }
@@ -47,7 +45,6 @@ const deleteMeal = async (req, res) => {
         const mealId = req.params.id;
         const userId = req.user?.id;
         const result = await mealService.deleteMeal(mealId, userId);
- 
         res.status(201).json({
             success: true,
             data: result
@@ -66,7 +63,6 @@ const updateMeal = async (req, res) => {
         const userId = req.user?.id;
         const payload = req.body;
         const result = await mealService.updateMeal(payload, mealId, userId);
-
         res.status(201).json({
             success: true,
             data: result

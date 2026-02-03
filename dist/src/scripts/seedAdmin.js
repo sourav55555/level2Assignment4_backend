@@ -24,7 +24,6 @@ const seedAdmin = async () => {
             },
             body: JSON.stringify(adminData)
         });
-
         if (signupAdmin.ok) {
             await prisma.user.update({
                 where: {
@@ -35,7 +34,7 @@ const seedAdmin = async () => {
                 }
             });
         }
-
+        console.log("status update success");
     }
     catch (err) {
         console.log(err);

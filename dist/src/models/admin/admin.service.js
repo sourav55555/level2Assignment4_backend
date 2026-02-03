@@ -68,7 +68,6 @@ const getDashboard = async () => {
         }, {
             timeout: 10000, // 10 seconds
         });
-        console.log(res, "resss");
         return res;
     }
     catch (e) {

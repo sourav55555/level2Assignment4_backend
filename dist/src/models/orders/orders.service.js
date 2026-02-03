@@ -70,11 +70,9 @@ const createOrderItem = async (payload, userId) => {
                 userId
             }
         });
-      
         return res;
     }
     catch (e) {
- 
         return e;
     }
 };
@@ -98,7 +96,6 @@ const getOrderItem = async (userId) => {
         return res;
     }
     catch (e) {
-  
         return e;
     }
 };

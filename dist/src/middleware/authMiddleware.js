@@ -1,12 +1,10 @@
 import { auth as betterAuth } from '../lib/auth';
 const authenticate = (...roles) => {
     return async (req, res, next) => {
-
         try {
             const session = await betterAuth.api.getSession({
                 headers: req.headers
             });
- 
             if (!session) {
                 return res.status(401).json({
                     success: false,

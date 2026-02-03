@@ -22,11 +22,9 @@ const updateUser = async (payload, id) => {
                 ...payload
             }
         });
-   
         return res;
     }
     catch (e) {
-   
         return e;
     }
 };
@@ -40,11 +38,9 @@ const updateUserStatus = async (payload, id) => {
                 ...payload
             }
         });
-    
         return res;
     }
     catch (e) {
-
         return e;
     }
 };

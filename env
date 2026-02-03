@@ -10,4 +10,4 @@ DATABASE_URL="postgresql://neondb_owner:npg_kq1oT9YyvDUn@ep-divine-bonus-ah7jtuw
 PORT=3000
 BETTER_AUTH_SECRET=b8a277caa48235a65c6b3b40144d45d69550d669ce91e8ec6ab3f86b275a3cf3
 BETTER_AUTH_URL=http://localhost:3000
-APP_URL= "http://localhost:4000"
+APP_URL= "https://foodhubsouravs.netlify.app"
