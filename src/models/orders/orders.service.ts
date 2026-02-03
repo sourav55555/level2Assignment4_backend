@@ -26,7 +26,21 @@ const userOrders = async (id: string) => {
       const res = await prisma.order.findMany({
         where:{
             customerId: id
+        },
+        include: {
+          orderItems: {
+            include: {
+              meal: true,
+            },
+          },
+          provider: {
+            select: {
+              id: true,
+              name: true,
+              image: true
+            }
           }
+        },
         });
         return res
     } catch (e) {
